@@ -2,11 +2,10 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/router";
 
 export default function Home() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const { basePath } = useRouter();
+  const basePath = "/prank";
   const [partyMode, setPartyMode] = useState(false);
 
   useEffect(() => {
