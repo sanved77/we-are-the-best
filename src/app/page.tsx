@@ -2,9 +2,11 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Home() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const { basePath } = useRouter();
   const [partyMode, setPartyMode] = useState(false);
 
   useEffect(() => {
@@ -24,7 +26,7 @@ export default function Home() {
       {partyMode && (
         <div className="absolute w-full h-full">
           <Image
-            src="/trance.gif"
+            src={`${basePath}/trance.gif`}
             alt="trance"
             fill
             style={{ objectFit: "cover" }}
@@ -32,10 +34,10 @@ export default function Home() {
           />
         </div>
       )}
-      <audio ref={audioRef} src="/best.m4a" preload="auto" loop />
+      <audio ref={audioRef} src={`${basePath}/best.m4a`} preload="auto" loop />
       <div className="relative w-[90vw] sm:w-[70vw] md:w-[60vw] aspect-square">
         <Image
-          src="/bitch.png"
+          src={`${basePath}/bitch.png`}
           alt="bitch"
           fill
           style={{ objectFit: "contain" }}
@@ -45,7 +47,7 @@ export default function Home() {
           <>
             <div className="absolute top-[36%] left-[22%] w-[70px] h-[70px] sm:w-[80px] md:w-[60px] z-10">
               <Image
-                src="/spiral.png"
+                src={`${basePath}/spiral.png`}
                 alt="left spiral eye"
                 width={60}
                 height={60}
@@ -54,7 +56,7 @@ export default function Home() {
             </div>
             <div className="absolute top-[36%] right-[37%] w-[60px] h-[60px] z-10">
               <Image
-                src="/spiral.png"
+                src={`${basePath}/spiral.png`}
                 alt="right spiral eye"
                 width={60}
                 height={60}
